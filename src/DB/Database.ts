@@ -1,11 +1,9 @@
 import Mongoose from "mongoose";
 import dotenv from "dotenv";
-
 dotenv.config();
-
 const connectDB = async (): Promise<void> => {
   try {
-    let URL = process.env.MONGO_URI || "mongodb://localhost:27017/movies";
+    let URL = process.env.MONGO_URL || "";
     await Mongoose.connect(URL);
     console.log("MongoDB connected successfully");
   } catch (error) {
