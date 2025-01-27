@@ -9,6 +9,9 @@ export interface IMovie {
   title: string;
   images: string[];
   description: string;
-  category: IMovieCategory;
+  dowloadlink: string;
+  steamLink: string;
+  sceenShots: string[];
+  movieCategory: IMovieCategory[];
   createdAt?: Date;
 }

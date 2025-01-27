@@ -6,10 +6,8 @@ const MovieCategorySchema: Schema = new Schema<IMovieCategory>(
   },
   { timestamps: true, versionKey: false }
 );
-
 const MovieCategory = model<IMovieCategory & Document>(
-  "MovieCategory",
+  "movieCategory",
   MovieCategorySchema
 );
-
 export default MovieCategory;
