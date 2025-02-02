@@ -1,6 +1,7 @@
 import multer from "multer";
-// Import your Cloudinary utility
-const storage = multer.memoryStorage();
 
-const Upload = multer({ storage: storage });
-export { Upload };
+const Storage = multer.memoryStorage()
+
+const Upload = multer({ storage: Storage });
+
+export default Upload;

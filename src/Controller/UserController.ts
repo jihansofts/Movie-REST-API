@@ -1,5 +1,9 @@
 import { Request, Response } from "express";
-import { CreateService, UserLogin } from "../Services/CreateService.js";
+import {
+  CreateService,
+  UserLogin,
+  UpdateUserService,
+} from "../Services/UserCreateService.js";
 import { ResponseHelper } from "../Utility/ResponseHelper.js";
 const CreateUser = async (req: Request, res: Response) => {
   try {
@@ -20,4 +24,12 @@ const LoginUser = async (req: Request, res: Response) => {
     res.json(ResponseHelper.error(400, "Failed to Login user"));
   }
 };
-export { CreateUser, LoginUser };
+const UpdateUser = async (req: Request, res: Response) => {
+  try {
+    const user = await UpdateUserService(req);
+    return res.status(user.statusCode).json(user);
+  } catch (error) {
+    res.json(ResponseHelper.error(400, "Failed to update user"));
+  }
+};
+export { CreateUser, LoginUser, UpdateUser };

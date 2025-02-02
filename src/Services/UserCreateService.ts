@@ -1,7 +1,7 @@
 import { Request } from "express";
 import { CreateToken } from "../Utility/CreateToken.js";
 import { ResponseHelper } from "../Utility/ResponseHelper.js";
-import User, { IUserDocument } from "../Model/UserModel.js";
+import User from "../Model/UserModel.js";
 import { IResponse } from "../interfaces/IResponse.js";
 import { IUserid } from "../interfaces/IUser.js";
 const CreateService = async (req: Request): Promise<IResponse> => {
@@ -32,5 +32,14 @@ const UserLogin = async (req: Request): Promise<IResponse> => {
     return ResponseHelper.error(400, "Failed to Login user");
   }
 };
-
-export { CreateService, UserLogin };
+const UpdateUserService = async (req: Request): Promise<IResponse> => {
+  try {
+    const user = await User.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+    });
+    return ResponseHelper.success(200, "User updated successfully", user);
+  } catch (error) {
+    return ResponseHelper.error(400, "Failed to update user");
+  }
+};
+export { CreateService, UserLogin, UpdateUserService };

@@ -8,8 +8,8 @@ const MovieSchema: Schema = new Schema<IMovie>(
     dowloadlink: { type: String, required: true, trim: true },
     steamLink: { type: String, required: true, trim: true },
     sceenShots: [{ publicid: String, url: String }],
-    movieCategory: [
-      { type: mongoose.Schema.Types.ObjectId },
+    Category: [
+      { type: mongoose.Schema.Types.ObjectId, ref: "Category", required: true },
     ],
   },
   { timestamps: true, versionKey: false }

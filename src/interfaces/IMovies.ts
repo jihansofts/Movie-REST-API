@@ -12,6 +12,6 @@ export interface IMovie {
   dowloadlink: string;
   steamLink: string;
   sceenShots: string[];
-  movieCategory: IMovieCategory[];
+  Category: IMovieCategory["id"];
   createdAt?: Date;
 }
