@@ -1,9 +1,9 @@
 import { Request } from "express";
-import { CreateToken } from "../Utility/CreateToken.js";
-import { ResponseHelper } from "../Utility/ResponseHelper.js";
-import User from "../Model/UserModel.js";
-import { IResponse } from "../interfaces/IResponse.js";
-import { IUserid } from "../interfaces/IUser.js";
+import { CreateToken } from "../../Utility/CreateToken.js";
+import { ResponseHelper } from "../../Utility/ResponseHelper.js";
+import User from "../../Model/UserModel.js";
+import { IResponse } from "../../interfaces/IResponse.js";
+import { IUserid } from "../../interfaces/IUser.js";
 const CreateService = async (req: Request): Promise<IResponse> => {
   try {
     const user = await User.create(req.body);

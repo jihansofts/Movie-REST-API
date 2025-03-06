@@ -5,6 +5,7 @@ import {
   UpdateService,
 } from "../Services/common/CreaateUpdateServeces.js";
 import { DeleteCategoryService } from "../Services/common/DeleteServices.js";
+import { GetService } from "../Services/common/GetServices.js";
 import { ResponseHelper } from "../Utility/ResponseHelper.js";
 const CreteCategory = async (req: Request, res: Response) => {
   try {
@@ -22,6 +23,14 @@ const UpdateCategory = async (req: Request, res: Response) => {
     res.json(ResponseHelper.error(402, "Failed to update Category"));
   }
 };
+const GetCategory = async (req: Request, res: Response) => {
+  try {
+    const Data = await GetService(req, MovieCategory);
+    return res.status(Data.statusCode).json(Data);
+  } catch (error) {
+    res.json(ResponseHelper.error(402, "Failed to get Category"));
+  }
+};
 const DeleteCategory = async (req: Request, res: Response) => {
   try {
     const response = await DeleteCategoryService(req, MovieCategory);
@@ -33,4 +42,4 @@ const DeleteCategory = async (req: Request, res: Response) => {
   }
 };
 
-export { CreteCategory, UpdateCategory, DeleteCategory };
+export { CreteCategory, UpdateCategory, DeleteCategory, GetCategory };

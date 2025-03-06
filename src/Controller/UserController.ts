@@ -3,7 +3,7 @@ import {
   CreateService,
   UserLogin,
   UpdateUserService,
-} from "../Services/UserCreateService.js";
+} from "../Services/Users/UserCreateService.js";
 import { ResponseHelper } from "../Utility/ResponseHelper.js";
 const CreateUser = async (req: Request, res: Response) => {
   try {

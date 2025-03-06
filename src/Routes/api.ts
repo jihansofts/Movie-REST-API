@@ -8,6 +8,7 @@ import {
 } from "../Controller/UserController.js";
 import {
   CreteCategory,
+  GetCategory,
   UpdateCategory,
   DeleteCategory,
 } from "../Controller/CategoryController.js";
@@ -31,6 +32,7 @@ router.post(
   AuthAdmin as express.RequestHandler,
   CreteCategory as express.RequestHandler
 );
+router.get("/GetCategory", GetCategory as express.RequestHandler);
 router.put(
   "/UpdateCategory/:id",
   AuthAdmin as express.RequestHandler,
